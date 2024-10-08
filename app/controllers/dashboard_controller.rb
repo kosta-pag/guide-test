@@ -16,6 +16,12 @@ class DashboardController < ApplicationController
     end
   end
 
+  def export_csv
+    CsvExportJob.perform_later(current_user)
+
+    flash[:notice] = "Der CSV-Export wurde gestartet."
+    redirect_to dashboard_path
+  end
   def find_match
     matcher = UserMatcher.new(current_user)
     @matched_user = matcher.find_matching_user
