@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby 3.1.4
 
-Things you may want to cover:
+* Rails 7
 
-* Ruby version
-
-* System dependencies
+* ESBuild
 
 * Configuration
 
-* Database creation
+* PostgreSQL
 
-* Database initialization
+* RSpec, Factory_Bot
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Redis, Sidekiq
