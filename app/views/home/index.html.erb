@@ -1,2 +1,15 @@
-<h1>Willkommen auf der Startseite</h1>
-<p>Dies ist die Startseite der Anwendung.</p>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full text-center">
+    <h1 class="text-3xl font-extrabold text-gray-900">Willkommen auf der Startseite</h1>
+    <p class="mt-4 text-sm text-gray-600">
+      Dies ist die Startseite der Anwendung. Bitte logge dich ein, um auf dein Dashboard zuzugreifen.
+    </p>
+    <div class="mt-6">
+      <% if user_signed_in? %>
+        <%= link_to 'Zum Dashboard', dashboard_path, class: "w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class: "w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <% end %>
+    </div>
+  </div>
+</div>

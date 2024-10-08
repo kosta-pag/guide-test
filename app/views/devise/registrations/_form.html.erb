@@ -1,0 +1,48 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), method: :put, html: { class: "space-y-6" }) do |f| %>
+  <%= devise_error_messages! %>
+  <div>
+    <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.email_field :email, disabled: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm bg-gray-100" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :name, "Name", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.text_field :name, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :location, "Wohnort", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.text_field :location, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :hobbies, "Wähle deine Hobbies", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.collection_select :hobby_ids, Hobby.all, :id, :name, { prompt: 'Wähle deine Hobbies' }, { multiple: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :new_hobbies, "Neue Hobbies hinzufügen (durch Kommas getrennt)", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.text_field :new_hobbies, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :password, "Neues Passwort (optional)", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.password_field :password, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+  <div>
+    <%= f.label :password_confirmation, "Passwort bestätigen (optional)", class: "block text-sm font-medium text-gray-700" %>
+    <div class="mt-1">
+      <%= f.password_field :password_confirmation, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit "Änderungen speichern", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>
